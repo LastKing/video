@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+    <title>视频播放</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/public/video-js.css">
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.css">
+    <script src="/public/video.js"></script>
+    <script src="/public/jquery-1.11.1.min.js"></script>
+    <script src="/public/bootstrap/js/bootstrap.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <% for(var i = 0;i < videos.length;i++){ %>
+            <p><a href="/?id=resource/<%= videos[i] %>"><%= videos[i] %></a></p>
+            <% } %>
+        </div>
+        <div class="col-sm-8">
+            <video id="my-video" class="video-js" controls preload="auto" width="640" height="264"
+                   poster="http://o82nt202c.bkt.clouddn.com/secondarytile.png" data-setup="{}">
+                <% if(typeof (id) == 'undefined'){ %>
+                <source src="http://7xo4az.com1.z0.glb.clouddn.com/1462756508440.mp4" type='video/mp4'>
+                <% } else{ %>
+                <source src="<%= id %>" type='video/mp4'>
+                <% } %>
+                <source src="MY_VIDEO.webm" type='video/webm'>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                </p>
+            </video>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
